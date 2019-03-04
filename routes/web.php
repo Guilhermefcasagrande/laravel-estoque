@@ -16,5 +16,9 @@ Route::get('/', function(){
 
 Route::get('/produtos', "ProdutoController@lista");
 Route::get('/produtos/novo', "ProdutoController@novo");
-Route::get('/produtos/adiciona', "ProdutoController@adiciona");
+// Route::post('/produtos/adiciona', "ProdutoController@adiciona");
+
+// Permite que sejam enviadas dois tipos de requisição para a rota
+Route::match(array("GET","POST"), '/produtos/adiciona', "ProdutoController@adiciona");
+// Define que o parametro da rota deverá ser um número
 Route::get('/produtos/mostra/{id}', "ProdutoController@mostra")->where("id", "[0-9]+");
