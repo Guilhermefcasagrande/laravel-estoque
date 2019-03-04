@@ -8,15 +8,7 @@ class ProdutoController extends Controller{
         // phpinfo();
         $produtos = DB::select("select * from produtos");
 
-        $html = "<h1>Listagem de produtos com laravel</h1>";
-
-        $html .= "<ul>";
-        foreach ($produtos as $value) {
-            $html .= "<li> Nome: ".$value->nome.", Descrição: ".$value->descricao."</li>";
-        }
-        $html .= "</ul>";
-
-        return $html;
+        return view("listagem")->with("produtos", $produtos);
     }
 }
 
