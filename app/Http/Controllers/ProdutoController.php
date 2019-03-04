@@ -13,7 +13,7 @@ class ProdutoController extends Controller{
     }
 
     public function mostra(){
-        $id = Request::input("id", "0");
+        $id = Request::route("id");
         $produto = DB::select("select * from produtos where id = ?", [$id]);
 
         if(empty($produto)){

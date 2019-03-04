@@ -18,7 +18,7 @@
                 <td><?php echo $value->valor; ?></td>
                 <td><?php echo $value->descricao; ?></td>
                 <td><?php echo $value->quantidade; ?></td>
-                <td><a href="/produtos/mostra?id=<?php echo $value->id; ?>">Visualizar</a></td>
+                <td><a href="/produtos/mostra/<?php echo $value->id; ?>">Visualizar</a></td>
             </tr>
             <?php endforeach; ?>
         </table>
