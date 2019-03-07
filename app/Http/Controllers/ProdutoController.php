@@ -28,12 +28,15 @@ class ProdutoController extends Controller{
 
     public function adiciona(){
         $nome = Request::input("nome");
+
+        $nome = Request::input("nome");
         $descricao = Request::input("descricao");
         $valor = Request::input("valor");
         $quantidade = Request::input("quantidade");
 
         DB::insert("insert into produtos (nome, quantidade, valor, descricao) values (?, ?, ?, ?)", array($nome, $quantidade, $valor, $descricao));
-        return view("produto/adicionado")->with("nome", $nome);
+
+        return redirect("/produtos")->withInput();
 
     }
 }
