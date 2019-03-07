@@ -36,7 +36,8 @@ class ProdutoController extends Controller{
 
         DB::insert("insert into produtos (nome, quantidade, valor, descricao) values (?, ?, ?, ?)", array($nome, $quantidade, $valor, $descricao));
 
-        return redirect("/produtos")->withInput();
+        // Retorna somente um valor do formulário preenchido
+        return redirect()->action("ProdutoController@lista")->withInput(Request::only("nome"));
 
     }
 }
