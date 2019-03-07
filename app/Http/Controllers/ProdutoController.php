@@ -6,10 +6,15 @@ use Request;
 class ProdutoController extends Controller{
 
     public function lista(){
-        // phpinfo();
         $produtos = DB::select("select * from produtos");
 
         return view("produto/listagem")->with("produtos", $produtos);
+    }
+
+    public function listaJson(){
+        $produtos = DB::select("select * from produtos");
+
+        return response()->$produtos;
     }
 
     public function mostra(){
